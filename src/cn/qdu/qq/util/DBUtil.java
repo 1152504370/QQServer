@@ -1,7 +1,7 @@
 package cn.qdu.qq.util;
 import cn.qdu.qq.dao.UserDAOImpl;
 import cn.qdu.qq.util.PropertiesUtil;
-import cn.qdu.qq.vo.Users;
+import cn.qdu.qq.vo.User;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,7 +31,7 @@ public static Connection getConn() throws SQLException{
 }
 public static void main(String[] args) {
 	UserDAOImpl user=new UserDAOImpl(); 
-	try {System.out.println(user.addUser(new Users("12345","Ð¡ÖÇ",20,"abcd@qq.com","3")));
+	try {System.out.println(user.addUser(new User("12345","Ð¡ÖÇ",20,"abcd@qq.com","3")));
 	System.out.println(user.isLogin("10001", "123456"));
 		//System.out.println(DBUtil.getConn());
 	} catch (Exception e) {

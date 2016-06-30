@@ -3,21 +3,26 @@ package cn.qdu.qq.bis;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.Map;
 
 import cn.qdu.qq.thread.ClientThread;
-import cn.qdu.qq.util.ObjectUtil;
 import cn.qdu.qq.util.PropertiesUtil;
-import cn.qdu.qq.vo.Users;
 
 public class ServerBis {
 	
 	ServerSocket ss;
 	int port;
+	private static Map<String,Socket> maps; 
+	public static Map<String, Socket> getMaps() {
+		return maps;
+	}
 	/**
 	 * 启动服务器
 	 * @throws IOException 
 	 */
 	public void StartService() throws IOException{
+		maps=new HashMap<String,Socket>();
 		String sport=PropertiesUtil.readPro("port");
 		if (sport!=null) {
 			//配置了端口
@@ -32,7 +37,6 @@ public class ServerBis {
 			System.out.println("客户端已连接...");
 			//启动一个独立线程，处理该用户的所有业务 
 			new ClientThread(s).start();
-			
 		}
 	}
 	/**

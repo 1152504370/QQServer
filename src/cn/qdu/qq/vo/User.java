@@ -3,7 +3,7 @@ package cn.qdu.qq.vo;
 import java.io.Serializable;
 import java.util.List;
 
-public class Users implements Serializable{
+public class User implements Serializable{
 private String account;
 private String password;
 private String nickname;
@@ -11,8 +11,8 @@ private int age;
 private String email;
 private String img;
 //===========================
-private List<Users> friends;//此用户所有的好友
-public Users(String password,
+private List<User> friends;//此用户所有的好友
+public User(String password,
 String nickname,
 int age,
 String email,
@@ -23,10 +23,10 @@ String img){
 	this.email=email;
 	this.img=img;
 }
-public Users(){
+public User(){
 	
 }
-public Users(String account,String password){
+public User(String account,String password){
 	this.account=account;
 	this.password=password;
 }
@@ -66,10 +66,10 @@ public String getImg() {
 public void setImg(String img) {
 	this.img = img;
 }
-public List<Users> getFriends() {
+public List<User> getFriends() {
 	return friends;
 }
-public void setFriends(List<Users> friends) {
+public void setFriends(List<User> friends) {
 	this.friends = friends;
 }
 

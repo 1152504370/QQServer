@@ -15,6 +15,8 @@ import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
 import cn.qdu.qq.bis.ServerBis;
+import java.awt.Font;
+import java.awt.Color;
 
 public class QQServerJFrame extends JFrame {
 
@@ -35,6 +37,7 @@ public class QQServerJFrame extends JFrame {
 			public void run() {
 				try {
 					QQServerJFrame frame = new QQServerJFrame();
+					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,6 +50,7 @@ public class QQServerJFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public QQServerJFrame() {
+		setTitle("QQ\u670D\u52A1\u5668");
 		sbis = new ServerBis();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -55,6 +59,8 @@ public class QQServerJFrame extends JFrame {
 		setContentPane(contentPane);
 
 		button1 = new JButton("\u542F\u52A8\u670D\u52A1");
+		button1.setForeground(Color.BLUE);
+		button1.setFont(new Font("楷体", Font.PLAIN, 20));
 		button1.addActionListener(new ActionListener() {
 			/**
 			 * 服务启动按钮点击事件，启动ServerSocket服务
@@ -77,6 +83,8 @@ public class QQServerJFrame extends JFrame {
 		});
 
 		button2 = new JButton("\u505C\u6B62\u670D\u52A1");
+		button2.setFont(new Font("楷体", Font.PLAIN, 20));
+		button2.setForeground(Color.BLUE);
 		button2.setEnabled(false);
 		button2.addActionListener(new ActionListener() {
 			/**
